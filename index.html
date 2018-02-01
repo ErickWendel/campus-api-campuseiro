@@ -1,0 +1,40 @@
+<html ng-app="app">
+
+<head>
+    <title>API Campusero</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js">
+    </script>
+    <script src="src/service.js"></script>
+    <script src="src/app.js"></script>
+</head>
+
+<body ng-controller="AppCtrl">
+
+    <h3>Informações da API</h3>
+    <div>
+
+        <div ng-repeat="item in items" ng-if="!ativo">
+            <div class="card">
+                <img class="card-img-top" src="{{item.background_image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <p class="card-text">{{item.stadium_name}}</p>
+                    <a ng-click="clickDetalhes(item.slug)" class="btn btn-primary">{{item.event_slug}}</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="{{atividade.background_image}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{atividade.title}}</h5>
+                <p class="card-text">{{atividade.stadium_name}}</p>
+                <p class="card-text" ng-bind="atividade.description"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
